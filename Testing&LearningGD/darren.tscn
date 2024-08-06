@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn12gdo1sgasd"]
+
+[ext_resource type="Script" path="res://Darren.gd" id="1_u8hbs"]
+[ext_resource type="Texture2D" uid="uid://bpk3uo02kfjtr" path="res://Sprites/Darren.png" id="2_r1ndd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkmc8"]
+size = Vector2(139, 194)
+
+[node name="Darren" type="CharacterBody2D"]
+position = Vector2(479, 265)
+script = ExtResource("1_u8hbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.56979e-06, 0)
+scale = Vector2(0.471429, 0.466667)
+texture = ExtResource("2_r1ndd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25.5, 0)
+shape = SubResource("RectangleShape2D_lkmc8")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://lahkvon6wio4"]
+
+[ext_resource type="Script" path="res://player5.gd" id="1_gk5gi"]
+[ext_resource type="Texture2D" uid="uid://bt200ff8esc5" path="res://Sprites/Rohan.jpg" id="2_hx1ia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp6n3"]
+size = Vector2(154, 142)
+
+[node name="player5" type="CharacterBody2D"]
+position = Vector2(658, 296)
+script = ExtResource("1_gk5gi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dp6n3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.3663e-05, -1.14441e-05)
+scale = Vector2(0.0751953, 0.0924479)
+texture = ExtResource("2_hx1ia")

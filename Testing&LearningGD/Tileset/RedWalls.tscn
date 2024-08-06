@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb2vn3uyexyox"]
+
+[ext_resource type="Texture2D" uid="uid://cn1okfplwsufc" path="res://Sprites/Red.png" id="1_j3emm"]
+[ext_resource type="Texture2D" uid="uid://bn8g6hdoi4eem" path="res://Sprites/Blue.png" id="2_hgmil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ga3"]
+size = Vector2(224, 225)
+
+[node name="Boundary" type="Node"]
+
+[node name="RedWall" type="Sprite2D" parent="."]
+texture = ExtResource("1_j3emm")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RedWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedWall/StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_p6ga3")
+
+[node name="RedWall2" type="Sprite2D" parent="."]
+position = Vector2(355, 3)
+texture = ExtResource("2_hgmil")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RedWall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedWall2/StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_p6ga3")
