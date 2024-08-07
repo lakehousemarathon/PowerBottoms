@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj3ufr5r7c42w"]
+
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="1_upuym"]
+[ext_resource type="Texture2D" uid="uid://bn8g6hdoi4eem" path="res://Sprites/Blue.png" id="2_8t1xu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt5jq"]
+size = Vector2(40, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbhpd"]
+size = Vector2(47, 46)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(377, 184)
+script = ExtResource("1_upuym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.175556, 0.175556)
+texture = ExtResource("2_8t1xu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dt5jq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vbhpd")
