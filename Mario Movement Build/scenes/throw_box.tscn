@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://tnk0jts151nb"]
+
+[ext_resource type="Script" path="res://scripts/throw_box.gd" id="1_16kkk"]
+[ext_resource type="Texture2D" uid="uid://dlknbkc6c23lo" path="res://assets/world_tileset.png" id="1_sm6nm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt0gw"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m8dw"]
+size = Vector2(22, 20)
+
+[node name="objectToGrab" type="RigidBody2D"]
+script = ExtResource("1_16kkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kt0gw")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_sm6nm")
+region_enabled = true
+region_rect = Rect2(112, 48, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6m8dw")
