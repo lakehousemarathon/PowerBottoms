@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1724708687
+icon.svg::CompressedTexture2D::2102648449592540961::1724639493::1724708687::1::::<><>::
+::res://assets/::1724639493
+7545.png::CompressedTexture2D::2958368057658819006::1724639493::1724708687::1::::<><>::
+8415.png::CompressedTexture2D::691768617059417347::1724639493::1724708687::1::::<><>::
+platforms.png::CompressedTexture2D::6246733711759890411::1724639493::1724708687::1::::<><>::
+SNES - Mega Man X3 - Zero.png::CompressedTexture2D::941012968942471391::1724639493::1724708687::1::::<><>::
+world_tileset.png::CompressedTexture2D::7952774745073501132::1724639493::1724708687::1::::<><>::
+::res://scenes/::1724639493
+game.tscn::PackedScene::3289883874819280151::1724639493::0::1::::<><>::uid://comqloh8yco6i::::res://scenes/player.tscn<>uid://dlknbkc6c23lo::::res://assets/world_tileset.png<>uid://cardw8u4kj141::::res://scenes/platform.tscn<>uid://tnk0jts151nb::::res://scenes/throw_box.tscn
+platform.tscn::PackedScene::4808158993147443940::1724639493::0::1::::<><>::uid://cu8716caefhsd::::res://assets/platforms.png
+player.tscn::PackedScene::5781249574656659918::1724639493::0::1::::<><>::res://scripts/player.gd<>uid://bifb5iqiksr3s::::res://assets/7545.png
+throw_box.tscn::PackedScene::1361077257615906611::1724639493::0::1::::<><>::res://scripts/throw_box.gd<>uid://dlknbkc6c23lo::::res://assets/world_tileset.png
+::res://scripts/::1724639493
+player.gd::GDScript::-1::1724639493::0::1::::<>CharacterBody2D<>::
+throw_box.gd::GDScript::-1::1724639493::0::1::::<>RigidBody2D<>::
