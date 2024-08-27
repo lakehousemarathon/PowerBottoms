@@ -136,8 +136,8 @@ size = Vector2(13, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_biec8"]
 size = Vector2(13, 18)
 
-[sub_resource type="Animation" id="Animation_75qq8"]
-resource_name = "crouch"
+[sub_resource type="Animation" id="Animation_dahwi"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -163,8 +163,8 @@ tracks/1/keys = {
 "values": [&"crouch"]
 }
 
-[sub_resource type="Animation" id="Animation_dahwi"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_75qq8"]
+resource_name = "crouch"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
