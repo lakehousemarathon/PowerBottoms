@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://tnk0jts151nb"]
+[gd_scene load_steps=6 format=3 uid="uid://tnk0jts151nb"]
 
 [ext_resource type="Script" path="res://scripts/throw_box.gd" id="1_16kkk"]
 [ext_resource type="Texture2D" uid="uid://dlknbkc6c23lo" path="res://assets/world_tileset.png" id="1_sm6nm"]
@@ -8,6 +8,14 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6m8dw"]
 size = Vector2(22, 20)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ueaxc"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Area2D:monitoring")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="objectToGrab" type="RigidBody2D"]
 script = ExtResource("1_16kkk")
@@ -24,3 +32,6 @@ region_rect = Rect2(112, 48, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_6m8dw")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ueaxc")

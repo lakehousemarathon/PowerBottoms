@@ -4,3 +4,5 @@ res://scenes/player.tscn
 res://scripts/MultiplayerController.gd
 res://scripts/player.gd
 res://scripts/SceneManager.gd
+res://scenes/throw_box.tscn
+res://scripts/GameManager.gd

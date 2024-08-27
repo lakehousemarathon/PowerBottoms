@@ -1,7 +1,7 @@
 extends Node
 #this gdscript will manage players and player related data
 var Players = {}
-
+var Entities = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
