@@ -1,20 +1,21 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724780997
-icon.svg::CompressedTexture2D::2102648449592540961::1724639493::1724708687::1::::<><>::
-::res://assets/::1724708687
-7545.png::CompressedTexture2D::2958368057658819006::1724639493::1724708687::1::::<><>::
-8415.png::CompressedTexture2D::691768617059417347::1724639493::1724708687::1::::<><>::
-platforms.png::CompressedTexture2D::6246733711759890411::1724639493::1724708687::1::::<><>::
-SNES - Mega Man X3 - Zero.png::CompressedTexture2D::941012968942471391::1724639493::1724708687::1::::<><>::
-world_tileset.png::CompressedTexture2D::7952774745073501132::1724639493::1724708687::1::::<><>::
-::res://scenes/::1724736798
-game.tscn::PackedScene::3289883874819280151::1724736176::0::1::::<><>::uid://comqloh8yco6i::::res://scenes/player.tscn<>uid://dlknbkc6c23lo::::res://assets/world_tileset.png<>uid://cardw8u4kj141::::res://scenes/platform.tscn<>uid://tnk0jts151nb::::res://scenes/throw_box.tscn
-multiplayer_interface.tscn::PackedScene::4375718366645371485::1724736798::0::1::::<><>::res://scripts/MultiplayerController.gd
+::res://::1724790404
+icon.svg::CompressedTexture2D::2102648449592540961::1724639493::1724788261::1::::<><>::
+::res://assets/::1724788261
+7545.png::CompressedTexture2D::2958368057658819006::1724639493::1724788261::1::::<><>::
+8415.png::CompressedTexture2D::691768617059417347::1724639493::1724788261::1::::<><>::
+platforms.png::CompressedTexture2D::6246733711759890411::1724639493::1724788261::1::::<><>::
+SNES - Mega Man X3 - Zero.png::CompressedTexture2D::941012968942471391::1724639493::1724788261::1::::<><>::
+world_tileset.png::CompressedTexture2D::7952774745073501132::1724639493::1724788261::1::::<><>::
+::res://scenes/::1724788567
+game.tscn::PackedScene::3289883874819280151::1724788567::0::1::::<><>::res://scripts/SceneManager.gd<>uid://comqloh8yco6i::::res://scenes/player.tscn<>uid://dlknbkc6c23lo::::res://assets/world_tileset.png<>uid://cardw8u4kj141::::res://scenes/platform.tscn<>uid://tnk0jts151nb::::res://scenes/throw_box.tscn
+multiplayer_interface.tscn::PackedScene::4375718366645371485::1724788567::0::1::::<><>::res://scripts/MultiplayerController.gd
 platform.tscn::PackedScene::4808158993147443940::1724708751::0::1::::<><>::uid://cu8716caefhsd::::res://assets/platforms.png
-player.tscn::PackedScene::5781249574656659918::1724708751::0::1::::<><>::res://scripts/player.gd<>uid://bifb5iqiksr3s::::res://assets/7545.png
+player.tscn::PackedScene::5781249574656659918::1724788567::0::1::::<><>::res://scripts/player.gd<>uid://bifb5iqiksr3s::::res://assets/7545.png
 throw_box.tscn::PackedScene::1361077257615906611::1724708751::0::1::::<><>::res://scripts/throw_box.gd<>uid://dlknbkc6c23lo::::res://assets/world_tileset.png
-::res://scripts/::1724736798
-GameManager.gd::GDScript::-1::1724736791::0::1::::<>Node<>::
-MultiplayerController.gd::GDScript::-1::1724736798::0::1::::<>Node<>::
-player.gd::GDScript::-1::1724639493::0::1::::<>CharacterBody2D<>::
+::res://scripts/::1724788411
+GameManager.gd::GDScript::-1::1724788317::0::1::::<>Node<>::
+MultiplayerController.gd::GDScript::-1::1724788317::0::1::::<>Node<>::
+player.gd::GDScript::-1::1724788411::0::1::::<>CharacterBody2D<>::
+SceneManager.gd::GDScript::-1::1724788317::0::1::::<>Node2D<>::
 throw_box.gd::GDScript::-1::1724639493::0::1::::<>RigidBody2D<>::

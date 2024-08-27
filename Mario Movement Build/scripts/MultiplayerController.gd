@@ -13,6 +13,8 @@ func _ready():
 	multiplayer.peer_disconnected.connect(PlayerDisconnected)
 	multiplayer.connected_to_server.connect(ConnectedToServer)
 	multiplayer.connection_failed.connect(ConnectionFailed)
+	if "--server" in OS.get_cmdline_args():
+		hostGame()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +24,7 @@ func _process(_delta):
 #from server and clients
 func PlayerConnected(id):
 	print("player connected: " + str(id))
+	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
 
 func PlayerDisconnected(id):
 	print("player disconnected: " + str(id))
@@ -29,7 +32,7 @@ func PlayerDisconnected(id):
 #called only from clients
 func ConnectedToServer(id):
 	print("connected to server: " + str(id))
-	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
+
 
 func ConnectionFailed(id):
 	print("connected to server failed: " + str(id))
@@ -51,16 +54,18 @@ func SendPlayerInformation(name, id):
 func StartGame():
 	var scene = load("res://scenes/game.tscn").instantiate()
 	get_tree().root.add_child(scene)
-	#$MultiplayerInterface.hide()
-	#self.hide()
+	$HostButton.hide()
+	$JoinButton.hide()
+	$Button.hide()
+	$LineEdit.hide()
+
 	
-	
-func _on_host_button_button_down():
-	#Creates a multiplayer type object in which 
+func hostGame():
+		#Creates a multiplayer type object in which 
 	#we can invoke a server.
 	peer = ENetMultiplayerPeer.new()
 	#create server takes two arguments, port and max number of clients
-	var server = peer.create_server(port, 2)
+	var server = peer.create_server(port)
 	
 	if(server != OK):
 		print("something fucked up big time dawg")
@@ -77,7 +82,13 @@ func _on_host_button_button_down():
 	"""
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for clients...")
+
+
+	
+func _on_host_button_button_down():
+	hostGame()
 	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
+	pass
 
 	
 	
@@ -87,6 +98,7 @@ func _on_join_button_button_down():
 	#in order to maintain sanity, we keep the same compression as the server.
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
+	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
 	
 
 

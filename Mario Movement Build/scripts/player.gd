@@ -24,6 +24,7 @@ func _ready():
 	#this unique identifier will be based on the player set name, so no duplicate names!
 	#Will need to fix the duplicate names issue at some point; not worrying about that now.
 	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())	
+	pass
 		
 func _physics_process(delta):
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
@@ -55,6 +56,7 @@ func _physics_process(delta):
 			accelerate(input_dir)
 		else:
 			add_friction()
+			
 		move_and_slide()
 		jump(input_dir)
 		pound(input_dir)

@@ -450,10 +450,7 @@ script = ExtResource("1_7yyxe")
 PlayerScene = ExtResource("1_ia3jc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(6, -59)
-
-[node name="Player" parent="." instance=ExtResource("1_ia3jc")]
-position = Vector2(8, -58)
+position = Vector2(0, 2)
 
 [node name="objectToGrab" parent="." instance=ExtResource("3_ovhcd")]
 position = Vector2(167, -8)
