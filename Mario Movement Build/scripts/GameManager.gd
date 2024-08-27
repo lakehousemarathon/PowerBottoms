@@ -1,5 +1,5 @@
 extends Node
-
+#this gdscript will manage players and player related data
 var Players = {}
 
 # Called when the node enters the scene tree for the first time.

@@ -29,23 +29,29 @@ func PlayerDisconnected(id):
 #called only from clients
 func ConnectedToServer(id):
 	print("connected to server: " + str(id))
+	SendPlayerInformation.rpc_id(1, $LineEdit.text, multiplayer.get_unique_id())
 
 func ConnectionFailed(id):
 	print("connected to server failed: " + str(id))
 
-@rpc("any_peer","call_local")
+@rpc("any_peer")
 func SendPlayerInformation(name, id):
 	if !GameManager.Players.has(id):
 		GameManager.Players[id] ={
 			"name": name,
 			"id": id,
+			#add any player info here
 		}
-	
+	#send player information to all clients, probably insecure, but itll work
+	if multiplayer.is_server():
+		for i in GameManager.Players:
+			SendPlayerInformation.rpc(GameManager.Players[i].name, i)
 	
 @rpc("any_peer","call_local")
 func StartGame():
 	var scene = load("res://scenes/game.tscn").instantiate()
 	get_tree().root.add_child(scene)
+	#$MultiplayerInterface.hide()
 	#self.hide()
 	
 	
@@ -63,7 +69,7 @@ func _on_host_button_button_down():
 	# Compression algorithm used for packets;
 	# choosing the one that utilizes least amount of CPU
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	
+
 	#this will set my server as my peer.
 	"""
 	Okay so basically, we want to be able to use our own host as a peer.
@@ -71,6 +77,8 @@ func _on_host_button_button_down():
 	"""
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for clients...")
+	SendPlayerInformation($LineEdit.text, multiplayer.get_unique_id())
+
 	
 	
 func _on_join_button_button_down():
@@ -79,7 +87,7 @@ func _on_join_button_button_down():
 	#in order to maintain sanity, we keep the same compression as the server.
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
-	pass
+	
 
 
 func _on_button_button_down():

@@ -19,39 +19,46 @@ const wall_jump_pushback = 700
 const wall_slide_gravity = 100
 var is_wall_sliding = false
 
+func _ready():
+	#each player needs a unique identifier that aligns with the game manager
+	#this unique identifier will be based on the player set name, so no duplicate names!
+	#Will need to fix the duplicate names issue at some point; not worrying about that now.
+	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())	
+		
 func _physics_process(delta):
-	var input_dir: Vector2 = input()
+	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+		var input_dir: Vector2 = input()
 	
-	velocity.y += gravity
+		velocity.y += gravity
 	
-	if input_dir.x > 0:
-		animated_sprite.flip_h = false
-	elif input_dir.x < 0:
-		animated_sprite.flip_h = true
+		if input_dir.x > 0:
+			animated_sprite.flip_h = false
+		elif input_dir.x < 0:
+			animated_sprite.flip_h = true
 	
-	if is_on_floor():
-		if input_dir == Vector2.ZERO:
-			animated_sprite.play("idle")
-		elif input_dir.x != 0:
-			animated_sprite.play("walk")
-		elif input_dir.y < 0:
-			animated_sprite.play("crouch")
-	elif is_wall_sliding:
-		animated_sprite.play("wall_slide")
-		animated_sprite.flip_h = !animated_sprite.flip_h 
-	else:
-		if input_dir.y < 0:
-			animated_sprite.play("pound")
+		if is_on_floor():
+			if input_dir == Vector2.ZERO:
+				animated_sprite.play("idle")
+			elif input_dir.x != 0:
+				animated_sprite.play("walk")
+			elif input_dir.y < 0:
+				animated_sprite.play("crouch")
+		elif is_wall_sliding:
+			animated_sprite.play("wall_slide")
+			animated_sprite.flip_h = !animated_sprite.flip_h 
 		else:
-			animated_sprite.play("jump")
-	if input_dir != Vector2.ZERO:
-		accelerate(input_dir)
-	else:
-		add_friction()
-	move_and_slide()
-	jump(input_dir)
-	pound(input_dir)
-	wall_slide(delta)
+			if input_dir.y < 0:
+				animated_sprite.play("pound")
+			else:
+				animated_sprite.play("jump")
+		if input_dir != Vector2.ZERO:
+			accelerate(input_dir)
+		else:
+			add_friction()
+		move_and_slide()
+		jump(input_dir)
+		pound(input_dir)
+		wall_slide(delta)
 
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO
@@ -94,5 +101,4 @@ func wall_slide(delta):
 		velocity.y = min(velocity.y, wall_slide_gravity)
 		
 		
-		
-		
+

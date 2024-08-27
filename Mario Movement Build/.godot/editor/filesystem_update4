@@ -1,5 +1,7 @@
-res://scripts/Network.gd
-res://scripts/MultiplayerController.gd
 res://scenes/multiplayer_interface.tscn
-res://scenes/game.tscn
+res://scripts/MultiplayerController.gd
 res://scripts/GameManager.gd
+res://scenes/game.tscn
+res://scripts/SceneManager.gd
+res://scenes/player.tscn
+res://scripts/player.gd
